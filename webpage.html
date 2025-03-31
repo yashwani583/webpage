@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        body {
+            background: url('love-background.jpg') no-repeat center center/cover;
+            font-family: 'Arial', sans-serif;
+            text-align: left;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .background-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .floating-element {
+            position: absolute;
+            font-size: 2em;
+            animation: float 4s infinite ease-in-out alternate;
+        }
+        .heart { color: red; }
+        .sparkle { color: white; }
+        .star { color: yellow; }
+        .butterfly { color: #ffdd57; }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-20px); opacity: 0.8; }
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 80%;
+            position: relative;
+            z-index: 10;
+        }
+        .message-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            animation: fadeIn 3s ease-in-out;
+            max-width: 50%;
+            position: relative;
+        }
+        h1 {
+            font-size: 3em;
+            animation: fadeIn 3s ease-in-out;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background: white;
+            color: #ff758c;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #ffebee;
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .slideshow-container {
+            position: relative;
+            width: 50%;
+            max-width: 360px;
+            aspect-ratio: 9 / 16;
+            margin-top: 20px;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+        }
+        .name-image {
+            height: 50px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-elements">
+        <span class="floating-element heart" style="top: 10%; left: 10%;">❤️</span>
+        <span class="floating-element sparkle" style="bottom: 10%; right: 10%;">✨</span>
+        <span class="floating-element star" style="top: 50%; left: 5%;">⭐</span>
+        <span class="floating-element butterfly" style="bottom: 30%; right: 20%;">🦋</span>
+        <span class="floating-element heart" style="top: 30%; right: 15%;">💖</span>
+        <span class="floating-element sparkle" style="bottom: 40%; left: 20%;">✨</span>
+        <span class="floating-element star" style="top: 70%; right: 30%;">⭐</span>
+        <span class="floating-element butterfly" style="bottom: 20%; left: 10%;">🦋</span>
+    </div>
+    <div class="container">
+        <div class="message-box">
+            <h1>For My Pasandida Aaurat 💖</h1>
+            <p>Hie baby!! I saw someone making these kind of webpages to wish his friend, so I thought of making one for you. After a lot of searching and trying out different methods, I finally figured out how to make one!! 💖</p>
+            <button class="btn" onclick="revealMessage()">Click for a Surprise 💌</button>
+            <p class="hidden-message" id="hiddenMessage">I wanted to tell you that you are the best thing ever happened to me and I love you soo much💞</p>
+        </div>
+        <div class="slideshow-container">
+            <img class="slide" src="pasandida1.jpg" alt="Image 1">
+            <img class="slide" src="pasandida2.jpg" alt="Image 2">
+            <img class="slide" src="pasandida3.jpg" alt="Image 3">
+        </div>
+    </div>
+    <script>
+        function revealMessage() {
+            document.getElementById('hiddenMessage').style.display = 'block';
+        }
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let slide of slides) {
+                slide.style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+        showSlides();
+    </script>
+</body>
+</html>
